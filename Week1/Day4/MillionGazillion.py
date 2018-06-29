@@ -14,7 +14,7 @@ class Trie(object):
 
     def getNode(self):
         return TrieNode()
-    def _chartoindex(self,ch):
+    def chartoindex(self,ch):
         return ord(ch)-ord('a')
     def add_word(self,word):
         
@@ -24,7 +24,7 @@ class Trie(object):
         node = self.root
         # print node
         for level in range(length):
-            index=self._chartoindex(word[level])
+            index=self.chartoindex(word[level])
             # print word[level]
             # print node.children[index]
             if(node.children[index]==None):
