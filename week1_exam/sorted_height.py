@@ -4,6 +4,10 @@ def sorted_height(list):
 		high = list[i][0]
 		index=i
 		for j in range(i+1,len(list)):
+			if(list[i][1]==0 and list[j][1]==0):
+				if(list[j][0]>high):
+					index=j
+					high = 
 			if(list[j][0]>high):
 				index=j
 				high = list[j][0]

@@ -6,10 +6,16 @@ def is_valid(code):
     for i in range(len(code)):
         if code[i] == "(" or code[i] == "{" or code[i] == "[":
             l.append(code[i])
-        if code[i] == ")" or code[i] == "}" or code[i] == "]":
-            x=l.pop()
-            if((code[i]=="(" and x!=")") or (code[i]=="{" and x!="}") or (code[i]=="[" and x!="]")):
-                return False
+        elif len(l) == 0:
+            return False
+        elif code[i] == ")" and l[-1] == "(":
+            l.pop()
+        elif code[i] == "}" and l[-1] == "{":
+            l.pop()
+        elif code[i] == "]" and l[-1] == "[":
+            l.pop()
+        else:
+            return False
     if len(l) == 0:
         return True
     else:
